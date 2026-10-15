@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "sequence",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.candidate.json",
+    "sha256": "cbb507e38091234640dd4bfd248bb7d8d2cdb4779647d3842f3db42f8637589a",
+    "bytes": 7620
+  },
+  "artifact": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.html",
+    "sha256": "b7f3c10b7474ef4a7d2236e9f890821031948be997ca92e0ad95d73da7b2c143",
+    "bytes": 828148
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/temp-cleanup-incomplete",
+      "severity": "error",
+      "message": "Browser cleanup could not safely finish; inspect the reported retained path.",
+      "subject": {
+        "artifact": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.html"
+      },
+      "evidence": {
+        "reason": "Chrome did not exit; retained temporary profile \"C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-4auq4p\".",
+        "retainedDirectory": "C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-4auq4p"
+      },
+      "supportedFixes": [
+        "resolve the reported process or filesystem failure; verify directory ownership before manual cleanup"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.finalize.json",
+    "summaryReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.finalize-summary.json",
+    "browserCheckReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T18:27:23.940Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 18637
+}

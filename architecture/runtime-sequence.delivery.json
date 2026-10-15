@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "a9b776a3-3537-4575-b9a7-d68ea7b59041",
+  "status": "current",
+  "command": "deliver",
+  "type": "sequence",
+  "input": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.candidate.json",
+  "output": "D:\\desktop\\autospace-workshop\\architecture\\runtime-sequence.html",
+  "specification": {
+    "sha256": "cbb507e38091234640dd4bfd248bb7d8d2cdb4779647d3842f3db42f8637589a",
+    "bytes": 7620
+  },
+  "artifact": {
+    "sha256": "b7f3c10b7474ef4a7d2236e9f890821031948be997ca92e0ad95d73da7b2c143",
+    "bytes": 828148
+  }
+}

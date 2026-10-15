@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Autospace Booking & Valet Runtime Flow",
+    "output": "architecture/runtime-sequence.html",
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/sushilsahoo06/autospace-workshop.git",
+      "revision": "d180e0fda7f1f13ea7c35598fecce36ed7a04352"
+    }
+  },
+  "participants": [
+    {
+      "id": "driver",
+      "type": "external",
+      "label": "Driver",
+      "sublabel": "Customer Browser"
+    },
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "apps/web",
+      "sublabel": "Next.js 14 :3001",
+      "sources": [
+        {
+          "path": "apps/web/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Next.js Web"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "apps/api",
+      "sublabel": "NestJS GraphQL :3000",
+      "sources": [
+        {
+          "path": "apps/api/src/main.ts",
+          "line": 29,
+          "end_line": 29,
+          "label": "NestJS API"
+        }
+      ]
+    },
+    {
+      "id": "auth",
+      "type": "security",
+      "label": "JWT Auth",
+      "sublabel": "RBAC Guard",
+      "sources": [
+        {
+          "path": "apps/api/src/app.module.ts",
+          "line": 32,
+          "end_line": 36,
+          "label": "JwtModule"
+        }
+      ]
+    },
+    {
+      "id": "prisma",
+      "type": "backend",
+      "label": "Prisma ORM",
+      "sublabel": "Query Engine",
+      "sources": [
+        {
+          "path": "apps/api/prisma/schema.prisma",
+          "line": 7,
+          "end_line": 14,
+          "label": "Prisma Schema"
+        }
+      ]
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Database :2010",
+      "sources": [
+        {
+          "path": "docker-compose.yml",
+          "line": 4,
+          "end_line": 15,
+          "label": "Docker Postgres"
+        }
+      ]
+    },
+    {
+      "id": "stripe",
+      "type": "cloud",
+      "label": "Stripe",
+      "sublabel": "Payments API",
+      "sources": [
+        {
+          "path": "apps/api/src/models/stripe/stripe.controller.ts",
+          "line": 28,
+          "end_line": 48,
+          "label": "Stripe Session"
+        }
+      ]
+    },
+    {
+      "id": "valet",
+      "type": "frontend",
+      "label": "apps/web-valet",
+      "sublabel": "Valet Portal :3003",
+      "sources": [
+        {
+          "path": "apps/web-valet/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Valet App"
+        }
+      ]
+    }
+  ],
+  "segments": [
+    { "from": 145, "to": 320, "label": "1. Discovery & Slot Selection" },
+    { "from": 335, "to": 575, "label": "2. Reservation & Payment" },
+    { "from": 590, "to": 765, "label": "3. Booking Creation & Valet Dispatch" }
+  ],
+  "messages": [
+    {
+      "id": "msg-search",
+      "from": "driver",
+      "to": "web",
+      "y": 160,
+      "label": "Search Garages",
+      "variant": "default"
+    },
+    {
+      "id": "msg-gql-query",
+      "from": "web",
+      "to": "api",
+      "y": 195,
+      "label": "query Garages($filter)",
+      "variant": "emphasis"
+    },
+    {
+      "id": "msg-find-slots",
+      "from": "api",
+      "to": "prisma",
+      "y": 230,
+      "label": "findMany(garages, slots)",
+      "variant": "default"
+    },
+    {
+      "id": "msg-sql-slots",
+      "from": "prisma",
+      "to": "db",
+      "y": 265,
+      "label": "SELECT * FROM garages",
+      "variant": "default"
+    },
+    {
+      "id": "msg-slots-ret",
+      "from": "db",
+      "to": "api",
+      "y": 300,
+      "label": "garages & slots data",
+      "variant": "return"
+    },
+    {
+      "id": "msg-book-click",
+      "from": "driver",
+      "to": "web",
+      "y": 345,
+      "label": "Select 3D Slot & Book",
+      "variant": "default"
+    },
+    {
+      "id": "msg-create-booking",
+      "from": "web",
+      "to": "api",
+      "y": 380,
+      "label": "mutation CreateBooking",
+      "variant": "emphasis"
+    },
+    {
+      "id": "msg-verify-jwt",
+      "from": "api",
+      "to": "auth",
+      "y": 415,
+      "label": "Verify JWT & Role",
+      "variant": "security"
+    },
+    {
+      "id": "msg-jwt-ok",
+      "from": "auth",
+      "to": "api",
+      "y": 450,
+      "label": "Claims Authorized",
+      "variant": "return"
+    },
+    {
+      "id": "msg-stripe-session",
+      "from": "api",
+      "to": "stripe",
+      "y": 485,
+      "label": "POST /v1/checkout/sessions",
+      "variant": "default"
+    },
+    {
+      "id": "msg-stripe-url",
+      "from": "stripe",
+      "to": "web",
+      "y": 520,
+      "label": "Stripe Checkout URL",
+      "variant": "return"
+    },
+    {
+      "id": "msg-driver-pay",
+      "from": "driver",
+      "to": "stripe",
+      "y": 555,
+      "label": "Submit Card Payment",
+      "variant": "emphasis"
+    },
+    {
+      "id": "msg-stripe-callback",
+      "from": "stripe",
+      "to": "api",
+      "y": 600,
+      "label": "GET /stripe/success?session_id",
+      "variant": "emphasis"
+    },
+    {
+      "id": "msg-prisma-create",
+      "from": "api",
+      "to": "prisma",
+      "y": 635,
+      "label": "booking.create() & timeline",
+      "variant": "default"
+    },
+    {
+      "id": "msg-db-commit",
+      "from": "prisma",
+      "to": "db",
+      "y": 670,
+      "label": "INSERT INTO bookings",
+      "variant": "default"
+    },
+    {
+      "id": "msg-dispatch-valet",
+      "from": "api",
+      "to": "valet",
+      "y": 705,
+      "label": "Assign Pickup Valet",
+      "variant": "dashed"
+    },
+    {
+      "id": "msg-confirm-driver",
+      "from": "valet",
+      "to": "driver",
+      "y": 740,
+      "label": "Valet En Route Notification",
+      "variant": "emphasis"
+    }
+  ],
+  "activations": [
+    { "participant": "web", "from": 160, "to": 530, "type": "frontend" },
+    { "participant": "api", "from": 195, "to": 715, "type": "backend" },
+    { "participant": "auth", "from": 415, "to": 455, "type": "security" },
+    { "participant": "prisma", "from": 230, "to": 305, "type": "backend" },
+    { "participant": "prisma", "from": 635, "to": 675, "type": "backend" },
+    { "participant": "db", "from": 265, "to": 305, "type": "database" },
+    { "participant": "db", "from": 670, "to": 685, "type": "database" },
+    { "participant": "stripe", "from": 485, "to": 605, "type": "cloud" },
+    { "participant": "valet", "from": 705, "to": 745, "type": "frontend" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Stage 1: Search & 3D Slot Selection",
+      "items": [
+        "Driver searches location via Mapbox integration in apps/web (:3001)",
+        "GraphQL query fetches available parking structures and slots",
+        "React Three Fiber renders interactive 3D lot for precise spot reservation"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Stage 2: Authentication & Stripe Payment",
+      "items": [
+        "CreateBooking mutation sends authenticated JWT with Customer claim",
+        "NestJS backend invokes Stripe Checkout API to generate session",
+        "Driver is redirected to secure Stripe checkout for payment confirmation"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Stage 3: Persistence & Valet Dispatch",
+      "items": [
+        "Stripe returns to /stripe/success webhook callback with session ID",
+        "Prisma inserts Booking and initial BookingTimeline status into PostgreSQL",
+        "Valet assignment triggers real-time task update to apps/web-valet (:3003)"
+      ]
+    }
+  ]
+}

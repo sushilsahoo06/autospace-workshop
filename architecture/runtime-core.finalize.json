@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-10-15T18:43:16.767Z",
+  "specification": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+    "sha256": "147ce229f2206edd9c512ca4159b8d6ed5eeec65cd5044ac275b3875e12cbfcd",
+    "bytes": 8431
+  },
+  "artifact": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+    "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+    "bytes": 845707
+  },
+  "stages": {
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\HP\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "architecture",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "--quality",
+        "showcase",
+        "--repo-root",
+        "D:\\desktop\\autospace-workshop",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "147ce229f2206edd9c512ca4159b8d6ed5eeec65cd5044ac275b3875e12cbfcd",
+          "bytes": 8431
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 20181,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\HP\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "architecture",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "--quality",
+        "showcase",
+        "--repo-root",
+        "D:\\desktop\\autospace-workshop",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "23621601-f94d-4992-aafe-e361bb9aaab0",
+        "ok": true,
+        "command": "deliver",
+        "type": "architecture",
+        "input": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+        "output": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "specification": {
+          "sha256": "147ce229f2206edd9c512ca4159b8d6ed5eeec65cd5044ac275b3875e12cbfcd",
+          "bytes": 8431
+        },
+        "artifact": {
+          "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+          "bytes": 845707
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "evidence": {
+          "verified": true,
+          "repository": "https://github.com/karthickthankyou/autospace-workshop",
+          "revision": "d180e0fda7f1f13ea7c35598fecce36ed7a04352",
+          "references": 10
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1243,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\HP\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "check",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "artifact": {
+          "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+          "bytes": 845707
+        },
+        "checks": [
+          {
+            "name": "single_svg",
+            "ok": true,
+            "details": [
+              "found 1 <svg> block(s)"
+            ]
+          },
+          {
+            "name": "finite_svg",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "orthogonal_arrows",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "label_route_clearance",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_crossings",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_corridors",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "container_border_runs",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "route_rhythm",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "legend_clearance",
+            "ok": true,
+            "details": []
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "metrics": {
+            "properCrossings": 0,
+            "resolvedCrossovers": 0,
+            "ambiguousCorridors": 0,
+            "arrowheadCollisions": 0,
+            "containerBorderRuns": 0,
+            "labelRouteClearanceIssues": 0,
+            "labelCanvasOverflowIssues": 0,
+            "minLabelRouteClearance": 11.5,
+            "desktopReadabilityIssues": 0,
+            "viewportHeightIssues": 0,
+            "minProjectedNodeTextPx": 7.5,
+            "maxBends": 2,
+            "routesOverSuggestedBends": 0,
+            "maxStretch": 1.223,
+            "routesOverSuggestedStretch": 0,
+            "minSegmentPx": 24,
+            "minInteriorSegmentPx": 130.5,
+            "shortSegmentCount": 0,
+            "shortEndpointSegmentCount": 0,
+            "shortInteriorSegmentCount": 0,
+            "microSegmentCount": 0
+          },
+          "suggestedLimits": {
+            "bendsPerRelationship": 2,
+            "stretch": 1.35,
+            "segmentPx": 16,
+            "microSegmentPx": 8
+          },
+          "routeReview": {
+            "crossings": [],
+            "detours": []
+          },
+          "leadingSpace": {
+            "measured": false,
+            "reviewSuggested": false
+          },
+          "desktopReadability": {
+            "budgetBasis": "recognized-declared-wide",
+            "readerContract": "declared-wide-v1",
+            "availableDiagramWidth": 1134.375,
+            "actualBudgetPx": 1134.375,
+            "actualReaderWidth": 1164.375,
+            "desiredReaderWidth": 1164.375,
+            "viewportCap": 1376,
+            "limit": "source-size",
+            "requestedTargetPx": 7.5,
+            "requestedTargetMet": true,
+            "hardFloorPx": 6,
+            "hardFloorMet": true,
+            "minimumOwner": {
+              "kind": "edge",
+              "id": "p1-driver-to-web",
+              "from": "users_driver",
+              "to": "web_customer"
+            },
+            "minimumSourceTextPx": 8,
+            "minimumProjectedTextPx": 7.5,
+            "semanticTextCount": 32
+          },
+          "issues": []
+        },
+        "provenance": "current",
+        "deliveryReceiptId": "23621601-f94d-4992-aafe-e361bb9aaab0"
+      }
+    },
+    "browser-check": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 11219,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\HP\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "browser-check",
+        "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+        "--json",
+        "--require-provenance"
+      ],
+      "execution": "in-process",
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "browser-check",
+        "evidenceKind": "automated-browser",
+        "status": "fail",
+        "visualReview": "not-requested",
+        "provenance": "current",
+        "deliveryReceiptId": "23621601-f94d-4992-aafe-e361bb9aaab0",
+        "artifact": {
+          "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+          "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+          "bytes": 845707
+        },
+        "state": {
+          "detail": "read",
+          "motion": "still"
+        },
+        "chrome": {
+          "status": "available",
+          "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+        },
+        "diagnostics": [
+          {
+            "code": "viewer/temp-cleanup-incomplete",
+            "severity": "error",
+            "message": "Browser cleanup could not safely finish; inspect the reported retained path.",
+            "subject": {
+              "artifact": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html"
+            },
+            "evidence": {
+              "reason": "Chrome did not exit; retained temporary profile \"C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5\".",
+              "retainedDirectory": "C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5"
+            },
+            "supportedFixes": [
+              "resolve the reported process or filesystem failure; verify directory ownership before manual cleanup"
+            ]
+          }
+        ],
+        "containment": {
+          "status": "fail",
+          "policy": "fit-or-reader-declared-readable-vertical-scroll",
+          "viewports": []
+        },
+        "themeStates": {
+          "status": "fail",
+          "viewports": []
+        },
+        "readability": {
+          "status": "fail",
+          "minimumProjectedNodeTextPx": 6,
+          "viewports": []
+        },
+        "viewerChrome": {
+          "status": "fail",
+          "viewports": []
+        },
+        "captures": {
+          "status": "not-requested",
+          "screenshots": [],
+          "contactSheet": null
+        },
+        "sidecars": {
+          "receipt": "runtime-core.browser-check.json",
+          "files": []
+        },
+        "error": "Chrome did not exit; retained temporary profile \"C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5\"."
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "viewer/temp-cleanup-incomplete",
+      "severity": "error",
+      "message": "Browser cleanup could not safely finish; inspect the reported retained path.",
+      "subject": {
+        "artifact": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html"
+      },
+      "evidence": {
+        "reason": "Chrome did not exit; retained temporary profile \"C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5\".",
+        "retainedDirectory": "C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5"
+      },
+      "supportedFixes": [
+        "resolve the reported process or filesystem failure; verify directory ownership before manual cleanup"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.finalize.json",
+    "summaryReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.finalize-summary.json",
+    "browserCheckReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.browser-check.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "browser-check",
+  "finishedAt": "2026-10-15T18:43:56.269Z",
+  "durationMs": 39505,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T18:27:23.940Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}
