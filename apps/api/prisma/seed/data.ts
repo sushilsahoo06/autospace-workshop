@@ -8,7 +8,7 @@ export const garagesSample: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171734/autospace/create-a-cover-image-of-an-affordable-parking-garage-in-brooklyn-new-york-the-picture-should-featu-561631306_qir7we.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171734/autospace/create-a-cover-image-of-an-affordable-parking-garage-in-brooklyn-new-york-the-picture-should-featu-561631306_qir7we.jpg',
       ],
     },
 
@@ -38,7 +38,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171734/autospace/create-a-cover-image-of-an-affordable-and-clean-parking-garage-in-brooklyn-new-york-the-picture-sh-825512221_kzvig6.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171734/autospace/create-a-cover-image-of-an-affordable-and-clean-parking-garage-in-brooklyn-new-york-the-picture-sh-825512221_kzvig6.jpg',
       ],
     },
     Slots: {
@@ -62,7 +62,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171734/autospace/design-a-cover-picture-for-a-convenient-parking-garage-in-queens-new-york-the-image-should-show-a--976407210_la43y2.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171734/autospace/design-a-cover-picture-for-a-convenient-parking-garage-in-queens-new-york-the-image-should-show-a--976407210_la43y2.jpg',
       ],
     },
     Slots: {
@@ -86,7 +86,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171734/autospace/design-a-cover-picture-for-a-convenient-parking-garage-in-queens-new-york-the-image-should-show-a--639233464_tuskex.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171734/autospace/design-a-cover-picture-for-a-convenient-parking-garage-in-queens-new-york-the-image-should-show-a--639233464_tuskex.jpg',
       ],
     },
     Slots: {
@@ -114,7 +114,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171733/autospace/design-a-cover-picture-for-a-parking-garage-in-long-island-city-queens-new-york-the-image-should--184920453_v8umyi.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171733/autospace/design-a-cover-picture-for-a-parking-garage-in-long-island-city-queens-new-york-the-image-should--184920453_v8umyi.jpg',
       ],
     },
     Slots: {
@@ -138,7 +138,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171733/autospace/create-a-cover-image-of-a-spacious-parking-garage-in-brooklyn-heights-new-york-the-picture-should--539597916_obi5kl.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171733/autospace/create-a-cover-image-of-a-spacious-parking-garage-in-brooklyn-heights-new-york-the-picture-should--539597916_obi5kl.jpg',
       ],
     },
     Slots: {
@@ -168,7 +168,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171733/autospace/design-a-cover-picture-for-a-parking-garage-in-long-island-city-queens-new-york-the-image-should--110448605_bqjzmf.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171733/autospace/design-a-cover-picture-for-a-parking-garage-in-long-island-city-queens-new-york-the-image-should--110448605_bqjzmf.jpg',
       ],
     },
     Slots: {
@@ -192,7 +192,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171733/autospace/render-a-cover-picture-of-a-secure-parking-garage-near-central-park-in-manhattan-new-york-the-imag-736153979_kvpczt.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171733/autospace/render-a-cover-picture-of-a-secure-parking-garage-near-central-park-in-manhattan-new-york-the-imag-736153979_kvpczt.jpg',
       ],
     },
     Slots: {
@@ -216,7 +216,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716171733/autospace/create-a-cover-image-of-an-affordable-clean-outdoor-parking-garage-in-brooklyn-new-york-the-pict-620611113_ortr3g.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716171733/autospace/create-a-cover-image-of-an-affordable-clean-outdoor-parking-garage-in-brooklyn-new-york-the-pict-620611113_ortr3g.jpg',
       ],
     },
     Slots: {
@@ -240,7 +240,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158769/autospace/busy-parking-garage-with-slots-in-newyork-neon-ambiance-abstract-black-oil-gear-mecha-detailed-a_fy51wa.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158769/autospace/busy-parking-garage-with-slots-in-newyork-neon-ambiance-abstract-black-oil-gear-mecha-detailed-a_fy51wa.jpg',
       ],
     },
     Slots: {
@@ -268,7 +268,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158768/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-showing-newyork-skyline-haze-ultra-detail_n1hhhz.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158768/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-showing-newyork-skyline-haze-ultra-detail_n1hhhz.jpg',
       ],
     },
     Slots: {
@@ -298,7 +298,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158768/autospace/brand-new-ultra-modern-car-parking-garage-with-slots-wide-angle-haze-ultra-detailed-film-photogr_kst6l1.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158768/autospace/brand-new-ultra-modern-car-parking-garage-with-slots-wide-angle-haze-ultra-detailed-film-photogr_kst6l1.jpg',
       ],
     },
     Slots: {
@@ -322,7 +322,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158768/autospace/busy-parking-garage-near-a-newyork-central-park-acrylic-painting-trending-on-pixiv-fanbox-palette-790070610_pptabc.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158768/autospace/busy-parking-garage-near-a-newyork-central-park-acrylic-painting-trending-on-pixiv-fanbox-palette-790070610_pptabc.jpg',
       ],
     },
     Slots: {
@@ -346,7 +346,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158768/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-wide-angle-haze-ultra-detailed-film-phot_ywuzvl.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158768/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-wide-angle-haze-ultra-detailed-film-phot_ywuzvl.jpg',
       ],
     },
     Slots: {
@@ -376,7 +376,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158767/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometri_lai3r3.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158767/autospace/brand-new-ultra-modern-techno-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometri_lai3r3.jpg',
       ],
     },
     Slots: {
@@ -404,7 +404,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158767/autospace/brand-new-modern-techno-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometric-art_rfgxgp.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158767/autospace/brand-new-modern-techno-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometric-art_rfgxgp.jpg',
       ],
     },
     Slots: {
@@ -428,7 +428,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158767/autospace/busy-parking-garage-with-slots-in-newyork-in-the-hudson-river-low-poly-isometric-art-3d-art-high_os8c09.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158767/autospace/busy-parking-garage-with-slots-in-newyork-in-the-hudson-river-low-poly-isometric-art-3d-art-high_os8c09.jpg',
       ],
     },
     Slots: {
@@ -455,7 +455,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158767/autospace/brand-new-modern-techno-parking-garage-with-slots-showing-newyork-skyline-with-no-cars-low-poly-i_ikyidk.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158767/autospace/brand-new-modern-techno-parking-garage-with-slots-showing-newyork-skyline-with-no-cars-low-poly-i_ikyidk.jpg',
       ],
     },
     Slots: {
@@ -485,7 +485,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158767/autospace/busy-parking-garage-with-slots-in-newyork-outer-space-vanishing-point-super-highway-high-speed-_wnpn6u.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158767/autospace/busy-parking-garage-with-slots-in-newyork-outer-space-vanishing-point-super-highway-high-speed-_wnpn6u.jpg',
       ],
     },
     Slots: {
@@ -512,7 +512,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158766/autospace/busy-parking-garage-near-a-newyork-central-park-acrylic-painting-trending-on-pixiv-fanbox-palette_buv6ks.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158766/autospace/busy-parking-garage-near-a-newyork-central-park-acrylic-painting-trending-on-pixiv-fanbox-palette_buv6ks.jpg',
       ],
     },
     Slots: {
@@ -536,7 +536,7 @@ export const garages: Prisma.GarageCreateInput[] = [
     Company: { connect: { id: 1 } },
     images: {
       set: [
-        'https://res.cloudinary.com/thankyou/image/upload/v1716158766/autospace/multistorey-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometric-art-3d-art-hig_1_pbgzgi.jpg',
+        'https://res.cloudinary.com/sushilsahoo/image/upload/v1716158766/autospace/multistorey-parking-garage-with-slots-showing-newyork-skyline-low-poly-isometric-art-3d-art-hig_1_pbgzgi.jpg',
       ],
     },
     Slots: {
