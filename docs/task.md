@@ -3,7 +3,6 @@
 ---
 
 ## 1. Environment & Baseline Setup
-
 - [x] Configure repository remote to `https://github.com/sushilsahoo06/autospace-workshop.git`
 - [x] Set Git author identity (`sushilsahoo06` / `sahoosushil456@gmail.com`)
 - [x] Set up local database container in `docker-compose.yml` on port `2010`
@@ -29,7 +28,7 @@
 - [ ] **Address Autocomplete**: Integrate Mapbox Search Box API for instant destination suggestions in search header.
 - [ ] **3D Slot Hover Tooltips**: Add interactive floating tags showing slot dimensions, level, and hourly rate when hovering over Three.js slot meshes.
 - [ ] **Booking Cancellation Flow**: Implement in-app cancellation before reservation start with automated Stripe refund logic.
-- [ ] **Mobile Bottom Sheet**: Enhance mobile responsive layout using a touch-draggable bottom drawer for slot checkout.
+- [x] **Mobile Bottom Sheet**: Enhance mobile responsive layout using a touch-draggable bottom drawer for slot checkout.
 
 ### 2.2 Operations & Valet Systems (`apps/web-valet` :3003 & `apps/web-manager` :3002)
 - [ ] **Live GPS Location Tracking**: Stream driver and valet location coordinates to Mapbox map during active pickup handoffs.
