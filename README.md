@@ -265,6 +265,7 @@ Explore the deep architectural blueprints, design tokens, and engineering standa
 - 🛡️ [**Engineering Rules & Standards**](file:///docs/rules.md): Nx boundary linting rules, Prisma migration safeguards, Git commit conventions, and Zero-Trust security.
 - 🎨 [**Design System Specification**](file:///docs/design.md): "Precision Mobility" design tokens, typography, component hierarchies, and Three.js 3D spatial canvas standards.
 - 📋 [**Implementation Tasks & Agentic AI Roadmap**](file:///docs/task.md): End-to-end feature delivery checklist and the 5 autonomous Agentic AI implementations.
+- 🚢 [**Deployment Master Guide**](file:///docs/deployment.md): Production deployment routes covering Vercel, Railway, Render, Docker Compose VPS, and AWS ECS.
 - 🧠 [**Project Memory & ADRs**](file:///docs/project-memory.md): Architecture Decision Records (ADR 001–006), service port matrices, and troubleshooting guides.
 - 🎯 [**Technical Interview Preparation Master Guide**](file:///docs/interview-guide.md): 30s & 2min elevator pitches, 15 deep-dive technical interview Q&As, STAR stories, and salary negotiation blueprints.
 
