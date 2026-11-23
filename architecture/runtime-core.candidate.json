@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Autospace Core Runtime Architecture",
+    "subtitle": "Core Components, Primary Path, Dependencies & Trust Boundaries",
+    "output": "architecture/runtime-core.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/sushilsahoo06/autospace-workshop.git",
+      "revision": "d180e0fda7f1f13ea7c35598fecce36ed7a04352"
+    }
+  },
+  "components": [
+    {
+      "id": "mapbox_api",
+      "type": "cloud",
+      "label": "Mapbox GL Cloud",
+      "sublabel": "Geocoding & Tiles API",
+      "pos": [260, 40],
+      "size": [160, 55],
+      "sources": [
+        {
+          "path": "libs/ui/src/components/organisms/map/Map.tsx",
+          "line": 14,
+          "end_line": 25,
+          "label": "Mapbox Map"
+        }
+      ]
+    },
+    {
+      "id": "stripe_api",
+      "type": "cloud",
+      "label": "Stripe Payments",
+      "sublabel": "Checkout API & Webhooks",
+      "brand": "stripe",
+      "pos": [520, 40],
+      "size": [160, 55],
+      "sources": [
+        {
+          "path": "apps/api/src/models/stripe/stripe.controller.ts",
+          "line": 16,
+          "end_line": 22,
+          "label": "Stripe Controller"
+        }
+      ]
+    },
+    {
+      "id": "users_driver",
+      "type": "external",
+      "label": "Vehicle Driver",
+      "sublabel": "Customer Mobile/Web",
+      "icon": "person",
+      "pos": [40, 180],
+      "size": [140, 60]
+    },
+    {
+      "id": "google_auth",
+      "type": "security",
+      "label": "Google OAuth 2.0",
+      "sublabel": "Federated Identity (SSO)",
+      "pos": [40, 320],
+      "size": [140, 60],
+      "sources": [
+        {
+          "path": "libs/network/src/config/authOptions.ts",
+          "line": 24,
+          "end_line": 32,
+          "label": "Google OAuth"
+        }
+      ]
+    },
+    {
+      "id": "web_customer",
+      "type": "frontend",
+      "label": "Customer Web App",
+      "sublabel": "Next.js 14 :3001",
+      "tag": "Mapbox + 3D Lot",
+      "brand": "next-js",
+      "pos": [260, 180],
+      "size": [160, 65],
+      "sources": [
+        {
+          "path": "apps/web/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Next.js Web"
+        }
+      ]
+    },
+    {
+      "id": "web_operations",
+      "type": "frontend",
+      "label": "Operations Portals",
+      "sublabel": "Next.js :3002-:3004",
+      "tag": "Manager, Valet, Admin",
+      "brand": "next-js",
+      "pos": [260, 320],
+      "size": [160, 65],
+      "sources": [
+        {
+          "path": "apps/web-manager/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Manager :3002"
+        },
+        {
+          "path": "apps/web-valet/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Valet :3003"
+        }
+      ]
+    },
+    {
+      "id": "api_gateway",
+      "type": "backend",
+      "label": "NestJS API Gateway",
+      "sublabel": "Apollo GQL & REST :3000",
+      "tag": "Single API Entry",
+      "brand": "node-js",
+      "pos": [520, 180],
+      "size": [165, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/main.ts",
+          "line": 26,
+          "end_line": 29,
+          "label": "NestJS API"
+        }
+      ]
+    },
+    {
+      "id": "auth_guard",
+      "type": "security",
+      "label": "JWT & RBAC Guard",
+      "sublabel": "Claim Verifier & bcrypt",
+      "tag": "Auth Boundary",
+      "pos": [520, 320],
+      "size": [165, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/app.module.ts",
+          "line": 32,
+          "end_line": 36,
+          "label": "JwtModule"
+        }
+      ]
+    },
+    {
+      "id": "prisma_orm",
+      "type": "backend",
+      "label": "Prisma ORM Client",
+      "sublabel": "Query Engine & Schema",
+      "tag": "Data Access Layer",
+      "brand": "prisma",
+      "pos": [770, 180],
+      "size": [150, 65],
+      "sources": [
+        {
+          "path": "apps/api/prisma/schema.prisma",
+          "line": 7,
+          "end_line": 14,
+          "label": "Prisma Schema"
+        }
+      ]
+    },
+    {
+      "id": "postgres_db",
+      "type": "database",
+      "label": "PostgreSQL 16",
+      "sublabel": "Relational DB :2010",
+      "tag": "Primary Store",
+      "brand": "postgresql",
+      "pos": [990, 180],
+      "size": [150, 65],
+      "sources": [
+        {
+          "path": "docker-compose.yml",
+          "line": 4,
+          "end_line": 15,
+          "label": "Postgres Container"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Frontend DMZ (Next.js Multi-App)",
+      "wraps": ["web_customer", "web_operations"]
+    },
+    {
+      "kind": "security-group",
+      "label": "Private Backend Service Layer (:3000)",
+      "wraps": ["api_gateway", "auth_guard"]
+    },
+    {
+      "kind": "region",
+      "label": "Isolated Persistence Tier",
+      "wraps": ["prisma_orm", "postgres_db"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "p1-driver-to-web",
+      "from": "users_driver",
+      "to": "web_customer",
+      "label": "1. HTTPS Session",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p2-web-to-api",
+      "from": "web_customer",
+      "to": "api_gateway",
+      "label": "2. GraphQL /graphql",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p3-api-to-prisma",
+      "from": "api_gateway",
+      "to": "prisma_orm",
+      "label": "3. ORM Query Dispatch",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p4-prisma-to-db",
+      "from": "prisma_orm",
+      "to": "postgres_db",
+      "label": "4. SQL :5432",
+      "variant": "emphasis"
+    },
+    {
+      "id": "sec-web-to-google",
+      "from": "web_customer",
+      "to": "google_auth",
+      "label": "OAuth 2.0 SSO",
+      "variant": "security"
+    },
+    {
+      "id": "ext-web-to-mapbox",
+      "from": "web_customer",
+      "to": "mapbox_api",
+      "label": "Geo Queries",
+      "variant": "dashed"
+    },
+    {
+      "id": "ext-api-to-stripe",
+      "from": "api_gateway",
+      "to": "stripe_api",
+      "label": "Checkout API",
+      "variant": "dashed"
+    },
+    {
+      "id": "sec-api-to-auth",
+      "from": "api_gateway",
+      "to": "auth_guard",
+      "label": "Validate Claims",
+      "variant": "security"
+    },
+    {
+      "id": "op-ops-to-api",
+      "from": "web_operations",
+      "to": "api_gateway",
+      "label": "Ops Mutations",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Primary Execution Path (1 → 2 → 3 → 4)",
+      "items": [
+        "1. Driver initiates reservation on apps/web (:3001) over HTTPS.",
+        "2. Web Client sends mutation CreateBooking via Apollo Client to NestJS /graphql on :3000.",
+        "3. GraphQL Resolver delegates to BookingsService which executes Prisma ORM client queries.",
+        "4. Prisma executes ACID relational transactions directly into PostgreSQL 16 on port 5432."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Trust Boundaries & Security Isolations",
+      "items": [
+        "Public Untrusted Zone: Drivers and browser clients access frontends via public internet.",
+        "Frontend DMZ: Next.js edge nodes holding NextAuth JWT sessions and Mapbox tokens.",
+        "Private Backend Layer: Isolated NestJS instance rejecting requests without valid signed JWTs.",
+        "Persistence Tier: PostgreSQL database accessible strictly through Prisma ORM internal wire protocol."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "External SaaS Dependencies",
+      "items": [
+        "Google OAuth 2.0: Federated user identity verification and OpenID profile synchronization.",
+        "Mapbox GL: Cloud geocoding, interactive vector tiles, and vehicle turn-by-turn routing.",
+        "Stripe Gateway: Offloaded PCI-compliant payment checkout sessions and asynchronous webhook confirmation."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Operations & Specialized Subsystems",
+      "items": [
+        "Staff Portals: Unified Next.js portals for Garage Managers (:3002), Valets (:3003), and Admins (:3004).",
+        "3D Spatial Visualizer: Embedded Three.js & React Three Fiber (@autospace/3d) rendering realistic parking slot meshes.",
+        "Stripe Webhook Controller: Direct REST listener on /stripe/success for asynchronous booking fulfillment."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Autospace Workshop Runtime Architecture",
+    "subtitle": "Multi-Tenant Smart Parking & Valet Platform Monorepo",
+    "output": "architecture/runtime-architecture.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/sushilsahoo06/autospace-workshop.git",
+      "revision": "d180e0fda7f1f13ea7c35598fecce36ed7a04352"
+    }
+  },
+  "components": [
+    {
+      "id": "google_oauth",
+      "type": "security",
+      "label": "Google OAuth",
+      "sublabel": "Identity Provider (SSO)",
+      "pos": [40, 10],
+      "size": [140, 55],
+      "sources": [
+        {
+          "path": "libs/network/src/config/authOptions.ts",
+          "line": 24,
+          "end_line": 32,
+          "label": "GoogleProvider"
+        }
+      ]
+    },
+    {
+      "id": "users_drivers",
+      "type": "external",
+      "label": "Customers / Drivers",
+      "sublabel": "Browser / Mobile Web",
+      "icon": "person",
+      "pos": [40, 120],
+      "size": [140, 60]
+    },
+    {
+      "id": "users_staff",
+      "type": "external",
+      "label": "Operations Staff",
+      "sublabel": "Managers, Valets & Admins",
+      "icon": "person",
+      "pos": [40, 270],
+      "size": [140, 60]
+    },
+    {
+      "id": "mapbox_svc",
+      "type": "cloud",
+      "label": "Mapbox GL Cloud",
+      "sublabel": "Geocoding & Maps API",
+      "pos": [270, 10],
+      "size": [160, 55],
+      "sources": [
+        {
+          "path": "libs/ui/src/components/organisms/map/Map.tsx",
+          "line": 14,
+          "end_line": 25,
+          "label": "Mapbox Component"
+        }
+      ]
+    },
+    {
+      "id": "web_customer",
+      "type": "frontend",
+      "label": "Customer Portal",
+      "sublabel": "Next.js 14 :3001",
+      "tag": "NextAuth + 3D",
+      "brand": "next-js",
+      "pos": [270, 120],
+      "size": [160, 65],
+      "sources": [
+        {
+          "path": "apps/web/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Next.js 3001"
+        }
+      ]
+    },
+    {
+      "id": "web_portals",
+      "type": "frontend",
+      "label": "Staff Portals",
+      "sublabel": "Next.js :3002-:3004",
+      "tag": "Manager, Valet & Admin",
+      "brand": "next-js",
+      "pos": [270, 270],
+      "size": [160, 65],
+      "sources": [
+        {
+          "path": "apps/web-manager/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Manager :3002"
+        },
+        {
+          "path": "apps/web-valet/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Valet :3003"
+        },
+        {
+          "path": "apps/web-admin/package.json",
+          "line": 6,
+          "end_line": 6,
+          "label": "Admin :3004"
+        }
+      ]
+    },
+    {
+      "id": "shared_libs",
+      "type": "frontend",
+      "label": "Shared Workspace Libs",
+      "sublabel": "@autospace/ui, 3d, network",
+      "tag": "R3F + Apollo Client",
+      "brand": "react",
+      "pos": [270, 420],
+      "size": [160, 65],
+      "sources": [
+        {
+          "path": "libs/3d/package.json",
+          "line": 7,
+          "end_line": 9,
+          "label": "Three.js / R3F"
+        },
+        {
+          "path": "libs/network/package.json",
+          "line": 17,
+          "end_line": 19,
+          "label": "Apollo Client"
+        }
+      ]
+    },
+    {
+      "id": "api_graphql",
+      "type": "backend",
+      "label": "Apollo GraphQL API",
+      "sublabel": "NestJS /graphql :3000",
+      "tag": "Code-First Schema",
+      "brand": "node-js",
+      "pos": [520, 120],
+      "size": [165, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/app.module.ts",
+          "line": 37,
+          "end_line": 45,
+          "label": "GraphQLModule"
+        }
+      ]
+    },
+    {
+      "id": "api_rest",
+      "type": "backend",
+      "label": "REST & Webhooks API",
+      "sublabel": "NestJS Swagger & Stripe :3000",
+      "tag": "OpenAPI /",
+      "brand": "node-js",
+      "pos": [520, 270],
+      "size": [165, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/main.ts",
+          "line": 26,
+          "end_line": 28,
+          "label": "SwaggerModule"
+        },
+        {
+          "path": "apps/api/src/models/stripe/stripe.controller.ts",
+          "line": 16,
+          "end_line": 22,
+          "label": "StripeController"
+        }
+      ]
+    },
+    {
+      "id": "auth_jwt",
+      "type": "security",
+      "label": "JWT & Role Auth",
+      "sublabel": "RBAC + bcrypt",
+      "tag": "Guards & Claims",
+      "pos": [520, 420],
+      "size": [165, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/app.module.ts",
+          "line": 32,
+          "end_line": 36,
+          "label": "JwtModule"
+        }
+      ]
+    },
+    {
+      "id": "prisma_orm",
+      "type": "backend",
+      "label": "Prisma ORM",
+      "sublabel": "Client & Query Engine",
+      "tag": "Relational Models",
+      "brand": "prisma",
+      "pos": [770, 120],
+      "size": [150, 65],
+      "sources": [
+        {
+          "path": "apps/api/prisma/schema.prisma",
+          "line": 7,
+          "end_line": 14,
+          "label": "Prisma Schema"
+        }
+      ]
+    },
+    {
+      "id": "stripe_svc",
+      "type": "cloud",
+      "label": "Stripe Payments",
+      "sublabel": "Checkout & Webhooks",
+      "tag": "Payment Gateway",
+      "brand": "stripe",
+      "pos": [770, 270],
+      "size": [150, 65],
+      "sources": [
+        {
+          "path": "apps/api/src/models/stripe/stripe.controller.ts",
+          "line": 28,
+          "end_line": 48,
+          "label": "Stripe Checkout"
+        }
+      ]
+    },
+    {
+      "id": "postgres_db",
+      "type": "database",
+      "label": "PostgreSQL 16",
+      "sublabel": "Docker :2010 / Supabase",
+      "tag": "Primary DB",
+      "brand": "postgresql",
+      "pos": [1000, 120],
+      "size": [150, 65],
+      "sources": [
+        {
+          "path": "docker-compose.yml",
+          "line": 4,
+          "end_line": 15,
+          "label": "PostgreSQL Docker"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Frontend Applications (Next.js 14)",
+      "wraps": ["web_customer", "web_portals", "shared_libs"]
+    },
+    {
+      "kind": "region",
+      "label": "NestJS Backend Runtime (:3000)",
+      "wraps": ["api_graphql", "api_rest", "auth_jwt"]
+    },
+    {
+      "kind": "region",
+      "label": "Database Persistence",
+      "wraps": ["postgres_db"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-drivers-to-web",
+      "from": "users_drivers",
+      "to": "web_customer",
+      "label": "HTTPS :3001"
+    },
+    {
+      "id": "conn-staff-to-portals",
+      "from": "users_staff",
+      "to": "web_portals",
+      "label": "HTTPS :3002-:3004"
+    },
+    {
+      "id": "conn-web-to-google",
+      "from": "web_customer",
+      "to": "google_oauth",
+      "label": "OAuth 2.0 SSO",
+      "variant": "security"
+    },
+    {
+      "id": "conn-web-to-mapbox",
+      "from": "web_customer",
+      "to": "mapbox_svc",
+      "label": "Maps & Directions",
+      "variant": "dashed"
+    },
+    {
+      "id": "conn-customer-to-graphql",
+      "from": "web_customer",
+      "to": "api_graphql",
+      "label": "GraphQL /graphql",
+      "variant": "emphasis"
+    },
+    {
+      "id": "conn-portals-to-graphql",
+      "from": "web_portals",
+      "to": "api_graphql",
+      "label": "GraphQL /graphql",
+      "variant": "emphasis"
+    },
+    {
+      "id": "conn-libs-to-portals",
+      "from": "shared_libs",
+      "to": "web_portals",
+      "label": "Shared Components",
+      "variant": "dashed"
+    },
+    {
+      "id": "conn-graphql-to-auth",
+      "from": "api_graphql",
+      "to": "auth_jwt",
+      "label": "Validate JWT / RBAC",
+      "variant": "security"
+    },
+    {
+      "id": "conn-graphql-to-prisma",
+      "from": "api_graphql",
+      "to": "prisma_orm",
+      "label": "ORM Queries"
+    },
+    {
+      "id": "conn-rest-to-stripe",
+      "from": "api_rest",
+      "to": "stripe_svc",
+      "label": "Checkout & Webhooks"
+    },
+    {
+      "id": "conn-prisma-to-db",
+      "from": "prisma_orm",
+      "to": "postgres_db",
+      "label": "SQL Wire Protocol",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Multi-Tenant Client Tier",
+      "items": [
+        "Customer Web Portal (port 3001) for searching garages and booking spots",
+        "Staff Portals: Manager (3002), Valet (3003), and Super-Admin (3004)",
+        "Interactive 3D garage layout powered by Three.js and React Three Fiber",
+        "Mapbox integration for garage geolocation, map pins, and driving directions"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Backend Application Tier",
+      "items": [
+        "NestJS modular backend orchestrating business domains",
+        "Apollo Server GraphQL API with code-first schema generation (/graphql)",
+        "Swagger REST API for webhook ingestion and checkout flows",
+        "Role-based authentication using JWT tokens and bcrypt password hashing"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Data & Third-Party Services",
+      "items": [
+        "PostgreSQL 16 database accessed via Prisma ORM client",
+        "Docker Compose setup mapping local port 2010 to database container port 5432",
+        "Stripe integration handling checkout sessions, charges, and payment webhooks",
+        "Google OAuth 2.0 social authentication provider integration"
+      ]
+    }
+  ]
+}

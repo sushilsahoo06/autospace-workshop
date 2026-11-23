@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+    "sha256": "147ce229f2206edd9c512ca4159b8d6ed5eeec65cd5044ac275b3875e12cbfcd",
+    "bytes": 8431
+  },
+  "artifact": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+    "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+    "bytes": 845707
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/temp-cleanup-incomplete",
+      "severity": "error",
+      "message": "Browser cleanup could not safely finish; inspect the reported retained path.",
+      "subject": {
+        "artifact": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html"
+      },
+      "evidence": {
+        "reason": "Chrome did not exit; retained temporary profile \"C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5\".",
+        "retainedDirectory": "C:\\Users\\HP\\AppData\\Local\\Temp\\archify-visual-check-profile-vfAyX5"
+      },
+      "supportedFixes": [
+        "resolve the reported process or filesystem failure; verify directory ownership before manual cleanup"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.finalize.json",
+    "summaryReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.finalize-summary.json",
+    "browserCheckReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T18:27:23.940Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 39505
+}

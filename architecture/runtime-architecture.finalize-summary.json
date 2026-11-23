@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-architecture.candidate.json",
+    "sha256": "8c36406017c927d6ea5b5fb8326a2ed6d6abc5dc399ba85e9c8b76aad17be69c",
+    "bytes": 9592
+  },
+  "artifact": {
+    "path": "D:\\desktop\\autospace-workshop\\architecture\\runtime-architecture.html",
+    "sha256": "ee41373116ad9b603ed93fb07041d836a385da1532ccabeb811a9e2c30dcff50",
+    "bytes": 858628
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-architecture.finalize.json",
+    "summaryReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-architecture.finalize-summary.json",
+    "browserCheckReceipt": "D:\\desktop\\autospace-workshop\\architecture\\runtime-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T18:27:23.940Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 6989,
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "conn-graphql-to-auth",
+            "from": "api_graphql",
+            "to": "auth_jwt",
+            "label": "Validate JWT / RBAC",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.137,
+          "directCorridorBlockers": [
+            {
+              "id": "api_rest",
+              "label": "REST &amp; Webhooks API",
+              "box": [
+                520,
+                270,
+                165,
+                65
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "conn-rest-to-stripe",
+            "from": "api_rest",
+            "to": "stripe_svc",
+            "label": "Checkout &amp; Webhooks",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1.249
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "api_rest → stripe_svc needs 3 bends: move node api_rest or stripe_svc so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

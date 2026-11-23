@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "23621601-f94d-4992-aafe-e361bb9aaab0",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.candidate.json",
+  "output": "D:\\desktop\\autospace-workshop\\architecture\\runtime-core.html",
+  "specification": {
+    "sha256": "147ce229f2206edd9c512ca4159b8d6ed5eeec65cd5044ac275b3875e12cbfcd",
+    "bytes": 8431
+  },
+  "artifact": {
+    "sha256": "b5813cff7bf9a1a91616423eea3bf4d3e6aafb764c71af56aced897b9f938e0a",
+    "bytes": 845707
+  }
+}
