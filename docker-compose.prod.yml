@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL 16 Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: autospace_postgres_prod
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-securepassword123}
+      POSTGRES_DB: ${POSTGRES_DB:-autospace}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-autospace}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - autospace_network
+
+  # 2. NestJS Code-First GraphQL API
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: autospace_api_prod
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-securepassword123}@postgres:5432/${POSTGRES_DB:-autospace}?schema=public
+      JWT_SECRET: ${JWT_SECRET:-super_secret_jwt_key_autospace_prod_32chars}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-sushilsahoo}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    ports:
+      - "3000:3000"
+    networks:
+      - autospace_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  autospace_network:
+    driver: bridge
