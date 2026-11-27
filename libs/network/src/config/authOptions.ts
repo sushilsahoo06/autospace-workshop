@@ -13,8 +13,13 @@ import { JWT } from 'next-auth/jwt'
 
 const MAX_AGE = 1 * 24 * 60 * 60
 
-const secureCookies = process.env.NEXTAUTH_URL?.startsWith('https://')
-const hostName = new URL(process.env.NEXTAUTH_URL || '').hostname
+const authUrl =
+  process.env.NEXTAUTH_URL ||
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000')
+const secureCookies = authUrl.startsWith('https://')
+const hostName = new URL(authUrl).hostname
 const rootDomain = 'autospace.com'
 
 export const authOptions: NextAuthOptions = {
@@ -124,7 +129,7 @@ export const authOptions: NextAuthOptions = {
         sameSite: 'lax',
         path: '/',
         secure: secureCookies,
-        domain: hostName == 'localhost' ? hostName : '.' + rootDomain, // add a . in front so that subdomains are included
+        ...(hostName.endsWith(rootDomain) ? { domain: '.' + rootDomain } : {}),
       },
     },
   },
